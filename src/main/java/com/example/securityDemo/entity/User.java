@@ -3,6 +3,8 @@ package com.example.securityDemo.entity;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -19,6 +21,12 @@ public class User {
     @NotNull
     @Column(nullable = false)
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles = new ArrayList<>();
 
     public User() {
     }
@@ -50,5 +58,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }
