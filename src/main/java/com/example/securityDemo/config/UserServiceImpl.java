@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
     // https://www.baeldung.com/spring-security-auto-login-user-after-registration#authManager
+    @Override
     public void autoLogin(HttpServletRequest request, String username, String password) {
         try {
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
@@ -39,14 +39,14 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
     // https://dzone.com/articles/how-to-get-current-logged-in-username-in-spring-se
+    @Override
     public User getLoggedUsername() {
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username;
         if (principal instanceof UserDetails) {
-            username = ((UserDetails)principal).getUsername();
+            username = ((UserDetails) principal).getUsername();
         } else {
             username = principal.toString();
         }
