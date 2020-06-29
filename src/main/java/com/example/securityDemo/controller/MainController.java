@@ -1,18 +1,16 @@
 package com.example.securityDemo.controller;
 
-import com.example.securityDemo.config.UserService;
+import com.example.securityDemo.service.UserService;
 import com.example.securityDemo.entity.Role;
 import com.example.securityDemo.entity.User;
 import com.example.securityDemo.repository.RoleRepository;
 import com.example.securityDemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -106,7 +104,7 @@ public class MainController {
 
         User user = userService.getLoggedUsername();
         if (user != null) {
-            return "Welcome " + user.getId() + " " + user.getUsername();
+            return "Welcome " + user.getUsername();
         }
         return null;
     }

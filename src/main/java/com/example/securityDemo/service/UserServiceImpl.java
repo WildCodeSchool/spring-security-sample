@@ -1,4 +1,4 @@
-package com.example.securityDemo.config;
+package com.example.securityDemo.service;
 
 import com.example.securityDemo.entity.User;
 import com.example.securityDemo.repository.UserRepository;
@@ -12,7 +12,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service

@@ -1,4 +1,4 @@
-package com.example.securityDemo.config;
+package com.example.securityDemo.service;
 
 import com.example.securityDemo.entity.User;
 import org.springframework.stereotype.Service;
